@@ -8,12 +8,14 @@ import {
   Section,
   Text,
 } from '@react-email/components';
+import { Header } from './utils/Header';
 import { Footer } from './utils/Footer';
 import { ActionBlock } from './utils/ActionBlock';
 import { commonStyles } from './utils/styles';
 
 interface WrxNotificationEmailProps {
   title?: string;
+  headerSubtext?: string;
   actionTitle?: string;
   actionSubtitle?: string;
   actionButtonText?: string;
@@ -22,6 +24,7 @@ interface WrxNotificationEmailProps {
 
 export const WrxNotificationEmail = ({ 
   title,
+  headerSubtext,
   actionTitle,
   actionSubtitle,
   actionButtonText,
@@ -35,22 +38,15 @@ export const WrxNotificationEmail = ({
       <Preview>{previewText}</Preview>
       <Body style={commonStyles.main}>
         <Container style={commonStyles.container}>
-          <Section style={commonStyles.contentSection}>
-            <Heading style={commonStyles.heading}>
-              Notification Template
-            </Heading>
-            <Text style={commonStyles.text}>
-              {title || 'Alert'} Message
-            </Text>
-          </Section>
-
+          <Header 
+            subtext={headerSubtext}
+          />
           <ActionBlock 
             title={actionTitle}
             subtitle={actionSubtitle}
             buttonText={actionButtonText}
             buttonUrl={actionButtonUrl}
           />
-
           <Footer />
         </Container>
       </Body>
@@ -60,6 +56,7 @@ export const WrxNotificationEmail = ({
 
 WrxNotificationEmail.PreviewProps = {
   title: 'Important',
+  headerSubtext: 'System Alert • Urgent',
   actionTitle: 'Action Required',
   actionSubtitle: 'Please review your account settings',
   actionButtonText: 'Update Settings',
