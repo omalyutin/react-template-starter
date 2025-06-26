@@ -11,6 +11,7 @@ import {
 import { Header } from './utils/Header';
 import { Footer } from './utils/Footer';
 import { ActionBlock } from './utils/ActionBlock';
+import { TextBlock } from './utils/TextBlock';
 import { commonStyles } from './utils/styles';
 
 interface WrxNotificationEmailProps {
@@ -20,6 +21,8 @@ interface WrxNotificationEmailProps {
   actionSubtitle?: string;
   actionButtonText?: string;
   actionButtonUrl?: string;
+  footerText?: string;
+  footerLinkUrl?: string;
 }
 
 export const WrxNotificationEmail = ({ 
@@ -28,7 +31,9 @@ export const WrxNotificationEmail = ({
   actionTitle,
   actionSubtitle,
   actionButtonText,
-  actionButtonUrl
+  actionButtonUrl,
+  footerText,
+  footerLinkUrl
 }: WrxNotificationEmailProps) => {
   const previewText = 'WRX Notification';
 
@@ -47,6 +52,10 @@ export const WrxNotificationEmail = ({
             buttonText={actionButtonText}
             buttonUrl={actionButtonUrl}
           />
+          <TextBlock 
+            text={footerText}
+            linkUrl={footerLinkUrl}
+          />
           <Footer />
         </Container>
       </Body>
@@ -61,6 +70,8 @@ WrxNotificationEmail.PreviewProps = {
   actionSubtitle: 'Please review your account settings',
   actionButtonText: 'Update Settings',
   actionButtonUrl: 'https://example.com/settings',
+  footerText: 'This is an automated notification.',
+  footerLinkUrl: 'https://example.com/help',
 } as WrxNotificationEmailProps;
 
 export default WrxNotificationEmail;

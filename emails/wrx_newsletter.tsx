@@ -11,6 +11,7 @@ import {
 import { Header } from './utils/Header';
 import { Footer } from './utils/Footer';
 import { ActionBlock } from './utils/ActionBlock';
+import { TextBlock } from './utils/TextBlock';
 import { commonStyles } from './utils/styles';
 
 interface WrxNewsletterEmailProps {
@@ -20,6 +21,8 @@ interface WrxNewsletterEmailProps {
   actionSubtitle?: string;
   actionButtonText?: string;
   actionButtonUrl?: string;
+  footerText?: string;
+  footerLinkUrl?: string;
 }
 
 export const WrxNewsletterEmail = ({ 
@@ -28,7 +31,9 @@ export const WrxNewsletterEmail = ({
   actionTitle,
   actionSubtitle,
   actionButtonText,
-  actionButtonUrl
+  actionButtonUrl,
+  footerText,
+  footerLinkUrl
 }: WrxNewsletterEmailProps) => {
   const previewText = 'WRX Newsletter';
 
@@ -47,6 +52,10 @@ export const WrxNewsletterEmail = ({
             buttonText={actionButtonText}
             buttonUrl={actionButtonUrl}
           />
+          <TextBlock 
+            text={footerText}
+            linkUrl={footerLinkUrl}
+          />
           <Footer />
         </Container>
       </Body>
@@ -61,6 +70,8 @@ WrxNewsletterEmail.PreviewProps = {
   actionSubtitle: 'Join thousands of users already using our platform',
   actionButtonText: 'Sign Up Now',
   actionButtonUrl: 'https://example.com/signup',
+  footerText: 'Questions about this newsletter?',
+  footerLinkUrl: 'https://example.com/support',
 } as WrxNewsletterEmailProps;
 
 export default WrxNewsletterEmail;
