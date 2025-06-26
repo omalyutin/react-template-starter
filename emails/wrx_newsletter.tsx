@@ -9,14 +9,23 @@ import {
   Text,
 } from '@react-email/components';
 import { Footer } from './utils/Footer';
+import { ActionBlock } from './utils/ActionBlock';
 import { commonStyles } from './utils/styles';
 
 interface WrxNewsletterEmailProps {
   recipientName?: string;
+  actionTitle?: string;
+  actionSubtitle?: string;
+  actionButtonText?: string;
+  actionButtonUrl?: string;
 }
 
 export const WrxNewsletterEmail = ({ 
-  recipientName
+  recipientName,
+  actionTitle,
+  actionSubtitle,
+  actionButtonText,
+  actionButtonUrl
 }: WrxNewsletterEmailProps) => {
   const previewText = 'WRX Newsletter';
 
@@ -35,6 +44,13 @@ export const WrxNewsletterEmail = ({
             </Text>
           </Section>
 
+          <ActionBlock 
+            title={actionTitle}
+            subtitle={actionSubtitle}
+            buttonText={actionButtonText}
+            buttonUrl={actionButtonUrl}
+          />
+
           <Footer />
         </Container>
       </Body>
@@ -44,6 +60,10 @@ export const WrxNewsletterEmail = ({
 
 WrxNewsletterEmail.PreviewProps = {
   recipientName: 'Sarah',
+  actionTitle: 'Get Started Today',
+  actionSubtitle: 'Join thousands of users already using our platform',
+  actionButtonText: 'Sign Up Now',
+  actionButtonUrl: 'https://example.com/signup',
 } as WrxNewsletterEmailProps;
 
 export default WrxNewsletterEmail;
