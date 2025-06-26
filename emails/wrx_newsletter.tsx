@@ -94,7 +94,7 @@ const container = {
   border: '1px solid #e6e6e6',
   borderRadius: '8px',
   margin: '40px auto',
-  maxWidth: '600px',
+  maxWidth: '800px',
   padding: '0',
 };
 
